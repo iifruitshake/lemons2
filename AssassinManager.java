@@ -15,15 +15,16 @@ public class AssassinManager {
 	}
 	
 	public String killRing() {
-		String f="";
-		Node current = killring;
-		while(current!=null) {	
-			
-			f+=current.name+" ";
-			
-			current= current.next;
+		public String killRing() {
+		kill = "";
+		current = killring;
+		follow = killring;
+		while(current!=null) {
+			kill+= "  " + follow + " is stalking " + follow.next;
+			follow = current;
+			current = current.next;
 		}
-		return f;
+		
 	}
 	
 	public String graveyard() {
