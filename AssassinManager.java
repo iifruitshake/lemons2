@@ -41,16 +41,46 @@ public class AssassinManager {
 	}
 	
 	public boolean killRingContains(String name) {
+		name.toLowerCase();
+		Node current = killring;
+		while(current!=null)
+		{
+			System.out.println(name);
+			if(current.name.toLowerCase().equals(name))
+			{
+				return true;
+			}
+			current=current.next;
+		}
 		return false;
 	}
 	
 	public boolean graveyardContains(String name) {
-		
+		String f =name.toLowerCase();
+		Node current = graveyard;
+		while(current!=null)
+		{
+			System.out.println(f);
+			if(current.name.toLowerCase().equals(f))
+			{
+				return true;
+			}
+			current=current.next;
+		}
 		return false;
 	}
 	
 	public boolean isGameOver() {
-		return false;
+		int f=0;
+		Node current= killring;
+		while(current!=null)
+		{
+			f++;
+			current=current.next;
+		}
+		if(f>=2)
+			return false;
+		return true;
 	}
 	
 	public String winner() {
