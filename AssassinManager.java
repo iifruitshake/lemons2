@@ -1,7 +1,11 @@
 public class AssassinManager {
     // YOUR CODE GOES HERE
-	AssassinNode killring;
-	AssassinNode graveyard;
+	Node killring;
+	Node graveyard;
+	Node front;
+	Node current;
+	Node follow;
+	String kill;
 	
 	public AssassinManager(List<String> names) {
 		for(String i : names)
