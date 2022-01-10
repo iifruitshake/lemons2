@@ -43,13 +43,10 @@ public class AssassinManager {
 	public boolean killRingContains(String name) {
 		name.toLowerCase();
 		Node current = killring;
-		while(current!=null)
-		{
+		while(current!=null) {
 			System.out.println(name);
 			if(current.name.toLowerCase().equals(name))
-			{
 				return true;
-			}
 			current=current.next;
 		}
 		return false;
@@ -58,13 +55,9 @@ public class AssassinManager {
 	public boolean graveyardContains(String name) {
 		String f =name.toLowerCase();
 		Node current = graveyard;
-		while(current!=null)
-		{
-			System.out.println(f);
+		while(current!=null) {
 			if(current.name.toLowerCase().equals(f))
-			{
 				return true;
-			}
 			current=current.next;
 		}
 		return false;
@@ -84,7 +77,7 @@ public class AssassinManager {
 	}
 	
 	public String winner() {
-		if(isGameOver) {
+		if(isGameOver()) {
 			return killring.name;
 		}
 		return null;
