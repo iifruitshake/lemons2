@@ -1,12 +1,9 @@
 import java.util.*;
+
 public class AssassinManager {
     // YOUR CODE GOES HERE
 	Node killring;
 	Node graveyard;
-	Node front;
-	Node current;
-	Node follow;
-	String kill;
 	
 	public AssassinManager(List<String> names) {
 		for(String i : names)
@@ -20,21 +17,20 @@ public class AssassinManager {
 	}
 	
 	public String killRing() {
-		kill = "";
-		current = killring;
-		follow = killring;
-		while(current!=null) {
-			kill+= "  " + follow + " is stalking " + follow.next;
-			follow = current;
-			current = current.next;
+		String f="";
+		Node current = killring;
+		while(current!=null) {	
+			
+			f+=current.name+" ";
+			
+			current= current.next;
 		}
-		return kill;
-		
+		return f;
 	}
 	
 	public String graveyard() {
 		String f="";
-		Node current = killring;
+		Node current = graveyard;
 		while(current!=null) {	
 			
 			f+=current.name+" ";
@@ -49,6 +45,7 @@ public class AssassinManager {
 	}
 	
 	public boolean graveyardContains(String name) {
+		
 		return false;
 	}
 	
@@ -61,7 +58,7 @@ public class AssassinManager {
 	}
 	
 	public void kill(String name) {
-		
+		return;
 	}
 
 }
