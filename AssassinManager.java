@@ -84,7 +84,10 @@ public class AssassinManager {
 	}
 	
 	public String winner() {
-		return "";
+		if(isGameOver) {
+			return killring.name;
+		}
+		return null;
 	}
 	
 	public void kill(String name) {
