@@ -1,3 +1,4 @@
+import java.util.*;
 public class AssassinManager {
     // YOUR CODE GOES HERE
 	Node killring;
@@ -27,6 +28,7 @@ public class AssassinManager {
 			follow = current;
 			current = current.next;
 		}
+		return kill;
 		
 	}
 	
@@ -43,19 +45,19 @@ public class AssassinManager {
 	}
 	
 	public boolean killRingContains(String name) {
-		
+		return false;
 	}
 	
 	public boolean graveyardContains(String name) {
-		
+		return false;
 	}
 	
 	public boolean isGameOver() {
-		
+		return false;
 	}
 	
 	public String winner() {
-		
+		return "";
 	}
 	
 	public void kill(String name) {
