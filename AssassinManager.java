@@ -19,7 +19,6 @@ public class AssassinManager {
 	}
 	
 	public String killRing() {
-		public String killRing() {
 		kill = "";
 		current = killring;
 		follow = killring;
