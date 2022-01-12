@@ -44,12 +44,12 @@ public class AssassinManager {
 	}
 	
 	public boolean killRingContains(String name) {
-		name.toLowerCase();
+		String f=name.toLowerCase();
 		Node current = killring;
 		while(current!=null)
 		{
-			System.out.println(name);
-			if(current.name.toLowerCase().equals(name))
+			System.out.println(f);
+			if(current.name.toLowerCase().equals(f))
 			{
 				return true;
 			}
@@ -94,24 +94,47 @@ public class AssassinManager {
 	}
 	
 	public void kill(String name) {
-		name.toLowerCase();
+		String f =name.toLowerCase();
 		Node current = killring;
-   		Node b1=killring;
+		Node b1= killring;
+   		while(b1.next!=null)
+   		{
+   			b1=b1.next;
+   		}
+   		
     	while(current !=null)
     	{
-    		if(current.name.toLowerCase().equals(name))
+    		
+    		if(current.name.toLowerCase().equals(f))
    			{
-    			current.killer=b1.name;
+    			
     			
     			if(graveyard==null)
+    			
     				graveyard=new Node(current.name);
     			else
     				graveyard=new Node(current.name,graveyard);
     			
-    			b1.next = current.next;
+    			graveyard.killer=b1.name;
+    			if(b1.next==null)
+    			{
+    				current=current.next;
+    				killring=current;
+    			}
+    			else
+    			{
+    				b1.next=current.next;
+    			}
+    			return;
+    			
+    			
+    			
    			}
     		b1=current;
-    		current=current.next;
+        	current=current.next;
+    		
+    		
+    		
     	}
    		
     	
@@ -130,9 +153,13 @@ public class AssassinManager {
 		f.add("sm");
 		f.add("big");
 		AssassinManager egg = new AssassinManager(f);
-		egg.kill("cumden");
 		System.out.println(egg.killRing());
+		System.out.println();
+		egg.kill("big");
+		System.out.println(egg.killRing());
+		System.out.println();
 		
+		System.out.println(egg.graveyard());
 		
 		
 	}
