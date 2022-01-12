@@ -6,8 +6,8 @@ public class AssassinManager {
 	Node graveyard;
 	
 	public AssassinManager(List<String> names) {
-		for(String i : names)
-		{
+		for(String i : names) {
+			
 			if(killring==null)
 				killring = new Node(i);
 			else
@@ -22,9 +22,9 @@ public class AssassinManager {
 		while(current!=null) {	
 			
 			if(current.next!=null)
-				f+=current.name+" is stalking "+current.next.name+"\n";
+				f+="  " + current.name+" is stalking "+current.next.name+"\n";
 			else
-				f+=current.name+" is stalking "+killring.name;
+				f+="  " + current.name+" is stalking "+killring.name;
 			
 			current= current.next;
 		}
@@ -36,8 +36,7 @@ public class AssassinManager {
 		Node current = graveyard;
 		while(current!=null) {	
 			
-			f+=current.name+" was killed by "+current.killer+"\n";
-			
+			f+="  " + current.name+" was killed by "+current.killer+"\n";
 			current= current.next;
 		}
 		return f;
@@ -46,11 +45,9 @@ public class AssassinManager {
 	public boolean killRingContains(String name) {
 		String f=name.toLowerCase();
 		Node current = killring;
-		while(current!=null)
-		{
-			System.out.println(f);
-			if(current.name.toLowerCase().equals(f))
-			{
+		while(current!=null) {
+			
+			if(current.name.toLowerCase().equals(f)) {
 				return true;
 			}
 			current=current.next;
@@ -61,11 +58,9 @@ public class AssassinManager {
 	public boolean graveyardContains(String name) {
 		String f =name.toLowerCase();
 		Node current = graveyard;
-		while(current!=null)
-		{
-			System.out.println(f);
-			if(current.name.toLowerCase().equals(f))
-			{
+		while(current!=null) {
+			
+			if(current.name.toLowerCase().equals(f)) {
 				return true;
 			}
 			current=current.next;
@@ -76,8 +71,7 @@ public class AssassinManager {
 	public boolean isGameOver() {
 		int f=0;
 		Node current= killring;
-		while(current!=null)
-		{
+		while(current!=null) {
 			f++;
 			current=current.next;
 		}
@@ -97,17 +91,13 @@ public class AssassinManager {
 		String f =name.toLowerCase();
 		Node current = killring;
 		Node b1= killring;
-   		while(b1.next!=null)
-   		{
+   		while(b1.next!=null) {
    			b1=b1.next;
    		}
    		
-    	while(current !=null)
-    	{
+    	while(current !=null) {
     		
-    		if(current.name.toLowerCase().equals(f))
-   			{
-    			
+    		if(current.name.toLowerCase().equals(f)) {
     			
     			if(graveyard==null)
     			
@@ -116,13 +106,11 @@ public class AssassinManager {
     				graveyard=new Node(current.name,graveyard);
     			
     			graveyard.killer=b1.name;
-    			if(b1.next==null)
-    			{
+    			if(b1.next==null) {
     				current=current.next;
     				killring=current;
     			}
-    			else
-    			{
+    			else {
     				b1.next=current.next;
     			}
     			return;
@@ -136,31 +124,7 @@ public class AssassinManager {
     		
     		
     	}
-   		
-    	
-    	
 	}
 
 
-	
-	
-	public static void main(String[] args)
-	{
-		ArrayList<String> f= new ArrayList<String>();
-		f.add("Cumden");
-		f.add("Pen");
-		f.add("is");
-		f.add("sm");
-		f.add("big");
-		AssassinManager egg = new AssassinManager(f);
-		System.out.println(egg.killRing());
-		System.out.println();
-		egg.kill("big");
-		System.out.println(egg.killRing());
-		System.out.println();
-		
-		System.out.println(egg.graveyard());
-		
-		
-	}
 }
